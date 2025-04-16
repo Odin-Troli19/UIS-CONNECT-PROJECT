@@ -81,3 +81,29 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+.flash {
+    padding: 0.75rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    font-weight: bold;
+}
+.flash.success { background-color: #d4edda; color: #155724; }
+.flash.error { background-color: #f8d7da; color: #721c24; }
+.flash.info { background-color: #d1ecf1; color: #0c5460; }
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+        padding: 1rem;
+    }
+
+    header, nav, footer {
+        text-align: center;
+    }
+
+    header div {
+        flex-direction: column;
+    }
+}
