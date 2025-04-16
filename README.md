@@ -4,7 +4,7 @@ This is a simple social media platform database project built for the DAT220 cou
 
 ##  Group 36
 - Sture Troli  
-- Dennis Demaj
+
 
 ##  Features
 - User profiles with major and interests
