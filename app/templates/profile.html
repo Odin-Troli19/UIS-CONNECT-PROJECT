@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>{{ user.username }}'s Profile</h2>
+    <p><strong>Major:</strong> {{ user.major }}</p>
+    <p><strong>Interests:</strong> {{ user.interests }}</p>
+
+    <h3>Posts by {{ user.username }}</h3>
+    {% for post in user_posts %}
+        <div class="post">
+            <p>{{ post.content }}</p>
+            <p><small>{{ post.timestamp }}</small></p>
+            <a href="{{ url_for('post', post_id=post.id) }}">Comments</a>
+        </div>
+    {% else %}
+        <p>No posts yet.</p>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Post by {{ post.username }}</h2>
+    <p>{{ post.content }}</p>
+    <p><small>{{ post.timestamp }}</small></p>
+
+    <h3>Comments</h3>
+    {% for comment in comments %}
+        <div class="comment">
+            <p><strong>{{ comment.username }}:</strong> {{ comment.content }}</p>
+            <p><small>{{ comment.timestamp }}</small></p>
+        </div>
+    {% else %}
+        <p>No comments yet.</p>
+    {% endfor %}
+
+    <h4>Add a Comment</h4>
+    <form method="post">
+        <textarea name="content" rows="3" required></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}
