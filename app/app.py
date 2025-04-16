@@ -32,6 +32,26 @@ def login():
             flash('User not found.', 'error')
     return render_template('login.html')
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form['username']
+        major = request.form['major']
+        interests = request.form['interests']
+        user = authenticate_user(username)
+        if user:
+            flash("Username already exists.", "error")
+            return redirect(url_for('register'))
+        conn = get_db_connection()
+        conn.execute("INSERT INTO users (username, major, interests) VALUES (?, ?, ?)",
+                     (username, major, interests))
+        conn.commit()
+        conn.close()
+        flash("Registration successful! You can now log in.", "success")
+        return redirect(url_for('login'))
+    return render_template('register.html')
+
+
 @app.route('/logout')
 def logout():
     session.clear()

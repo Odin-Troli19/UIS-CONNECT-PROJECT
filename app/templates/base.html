@@ -13,6 +13,12 @@
             <a href="{{ url_for('profile', user_id=1) }}">My Profile</a>
         </nav>
     </header>
+    {% if session.get('username') %}
+        <p>Logged in as {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a></p>
+    {% else %}
+        <p><a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a></p>
+    {% endif %}
+
 
     <main>
         {% block content %}{% endblock %}
