@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session
 from db_utils import (
+    get_db_connection,
     get_all_posts,
     get_user_profile,
     get_post_with_comments,
@@ -8,6 +9,8 @@ from db_utils import (
     like_post,
     authenticate_user
 )
+
+
 from config import DATABASE
 
 app = Flask(__name__)
@@ -58,12 +61,20 @@ def logout():
     flash('Logged out successfully.', 'info')
     return redirect(url_for('index'))
 
-@app.route('/profile/<int:user_id>')
-def profile(user_id):
+@app.route('/profile')
+def profile():
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("You have to register or login to be able to see your profile.", "error")
+        return redirect(url_for('login'))
+    
     user, user_posts = get_user_profile(user_id)
     if not user:
-        return "User not found", 404
+        flash("Profile not found.", "error")
+        return redirect(url_for('index'))
+    
     return render_template('profile.html', user=user, user_posts=user_posts)
+
 
 @app.route('/post/<int:post_id>', methods=['GET', 'POST'])
 def post(post_id):

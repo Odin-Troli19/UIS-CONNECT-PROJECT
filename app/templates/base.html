@@ -10,7 +10,8 @@
         <h1>UIS-Connect</h1>
         <nav>
             <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('profile', user_id=1) }}">My Profile</a>
+            <a href="{{ url_for('profile') }}">My Profile</a>
+
         </nav>
     </header>
     {% if session.get('username') %}
