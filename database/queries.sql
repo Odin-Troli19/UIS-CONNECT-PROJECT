@@ -1,4 +1,5 @@
--- 1. Join: Get posts with usernames
+
+-- 1. Join: Posts with usernames
 SELECT posts.id, posts.content, posts.timestamp, users.username
 FROM posts
 JOIN users ON posts.user_id = users.id;
@@ -21,8 +22,18 @@ GROUP BY user_id;
 
 -- 5. Filtering: Posts by a specific user
 SELECT * FROM posts
-WHERE user_id = 1;
+WHERE user_id = 3;
 
 -- 6. Filtering: Comments in a specific date range
 SELECT * FROM comments
-WHERE timestamp BETWEEN '2025-03-01' AND '2025-03-02';
+WHERE timestamp BETWEEN '2025-03-01' AND '2025-03-05';
+
+-- 7. Filtering: Search posts with keyword
+SELECT * FROM posts
+WHERE content LIKE '%project%';
+
+-- 8. Join and Group: Count of posts per user
+SELECT users.username, COUNT(posts.id) AS total_posts
+FROM posts
+JOIN users ON posts.user_id = users.id
+GROUP BY posts.user_id;
