@@ -95,6 +95,20 @@ git clone https://github.com/Odin-Troli19/UIS-CONNECT-PROJECT.git
 cd uis-connect
 
 Instructions:
-00 - (optional) - Set Up a Virtual Environment (Optional but recommended)
+00. (optional) - Set Up a Virtual Environment (Optional but recommended)
 python -m venv venv
 venv\Scripts\activate  # On Windows
+
+3. Install Flask
+pip install flask
+
+4. Create and Populate the Database
+python init_db.py          # Creates database and schema
+python load_sample_data.py # Adds 10+ records per table
+
+5. Run the App
+python app/app.py
+
+6. Open in Browser
+Visit: http://127.0.0.1:5000
+
