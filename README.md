@@ -33,8 +33,6 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 ##  Group Members
 **Group 36**
 - Sture Troli
-- Dennis Demaj
-
 ---
 
 ## 🛠 Tech Stack
