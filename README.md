@@ -70,23 +70,23 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 
 ---
 
-## 🧠 How It Meets Project Requirements
+##  How It Meets Project Requirements
 
 | Requirement                  | Status      |
 |----------------------------- |-------------|
-| ≥ 5 normalized tables        | ✅ (Users, Posts, Comments, Likes, Friendships) |
-| Manual SQL queries           | ✅ All queries written by hand |
-| Joins (≥ 2)                  | ✅ Users + Posts, Users + Comments |
-| Aggregation query            | ✅ Like counts, Post counts |
-| Grouping query               | ✅ Posts per user |
-| Filtering/searching          | ✅ By user, date, keyword |
-| CRUD operations              | ✅ Posts and Comments (Create, Read, Delete/Edit coming soon) |
-| Web Interface                | ✅ Flask-based app with HTML templates |
-| Sample data (≥ 10 per table) | ✅ 10+ entries per table in `sample_data.sql` |
+| ≥ 5 normalized tables        |  (Users, Posts, Comments, Likes, Friendships) |
+| Manual SQL queries           |  All queries written by hand |
+| Joins (≥ 2)                  |  Users + Posts, Users + Comments |
+| Aggregation query            |  Like counts, Post counts |
+| Grouping query               |  Posts per user |
+| Filtering/searching          |  By user, date, keyword |
+| CRUD operations              |  Posts and Comments (Create, Read, Delete/Edit coming soon) |
+| Web Interface                |  Flask-based app with HTML templates |
+| Sample data (≥ 10 per table) |  10+ entries per table in `sample_data.sql` |
 
 ---
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### 1. Clone the Repository
 
