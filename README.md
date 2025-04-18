@@ -93,3 +93,8 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 ```bash
 git clone https://github.com/Odin-Troli19/UIS-CONNECT-PROJECT.git
 cd uis-connect
+
+Instructions:
+00 - (optional) - Set Up a Virtual Environment (Optional but recommended)
+python -m venv venv
+venv\Scripts\activate  # On Windows
