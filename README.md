@@ -149,20 +149,13 @@ Manually written (no migration tools), including:
 
 ---
 
-### 🎤 4. **Presentation (5–7 min + 2–3 min Q&A)**
+###  4. **Presentation (5–7 min + 2–3 min Q&A)**
 - Show **schema, ER diagram, normalization**.
 - Demonstrate **SQL queries**.
 - Present **web application and database** in action.
 - **All members must present** and explain their work.
 - **Presentation Dates:** Thursday, April 24 or Friday, April 25, 2025.
 
----
 
-## 📅 **Key Deadlines:**
-- 📍 **Feb 27, 2025**: Submit group form.
-- 📍 **Mar 9, 2025**: Submit project proposal (option A or B + 2 paragraphs).
-- 📍 **Apr 24–25, 2025**: Presentations.
 
----
 
-Let me know if you want help drafting the proposal or starting the Flask app!
