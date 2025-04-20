@@ -110,3 +110,59 @@ python app/app.py
 6. Open in Browser
 Visit: http://127.0.0.1:5000
 
+Here’s a summary of the **DAT220 Group Project Description** and the **requirements to pass**:
+
+---
+
+## 📌 **Project Summary:**
+You will work in a **group of 2 (or 3 students)** to design a **functional, normalized database** and build a **simple web application** that interacts with it. This project is **mandatory** and must be **completed successfully to qualify for the exam**.
+
+You can choose between two options:
+- **Option A:** Design a social media platform database (users, posts, likes, comments, etc.).
+- **Option B:** Your own custom application (must describe it in the proposal).
+
+---
+
+## ✅ **Requirements to Pass:**
+
+### 📁 1. **Database Design**
+- Written **problem analysis** and **ER diagram** (must be available during presentation).
+- **At least 5 tables** with meaningful relationships.
+- Proper **use of primary/foreign keys** and **3rd Normal Form (3NF)** normalization.
+- **At least 10 records** per table.
+
+---
+
+### 🌐 2. **Web Application**
+- Simple **web interface** (can use Flask or another framework if approved).
+- **CRUD functionality** for at least 2 key entities.
+- If you haven’t passed DAT310, you can use a simple Python-based app (must be approved within two weeks).
+
+---
+
+### 🧠 3. **SQL Queries**
+Manually written (no migration tools), including:
+- ✅ 2 joins between multiple tables.
+- ✅ 1 aggregation query (e.g., COUNT, AVG).
+- ✅ 1 search/filter (e.g., by date or category).
+- ✅ 1 grouping query (e.g., using `GROUP BY`).
+
+---
+
+### 🎤 4. **Presentation (5–7 min + 2–3 min Q&A)**
+- Show **schema, ER diagram, normalization**.
+- Demonstrate **SQL queries**.
+- Present **web application and database** in action.
+- **All members must present** and explain their work.
+- **Presentation Dates:** Thursday, April 24 or Friday, April 25, 2025.
+
+---
+
+## 📅 **Key Deadlines:**
+- 📍 **Feb 27, 2025**: Submit group form.
+- 📍 **Mar 9, 2025**: Submit project proposal (option A or B + 2 paragraphs).
+- 📍 **Apr 24–25, 2025**: Presentations.
+
+---
+
+Let me know if you want help drafting the proposal or starting the Flask app!
