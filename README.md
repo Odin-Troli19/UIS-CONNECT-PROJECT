@@ -114,7 +114,7 @@ Here’s a summary of the **DAT220 Group Project Description** and the **require
 
 ---
 
-## 📌 **Project Summary:**
+Project Summary:
 You will work in a **group of 2 (or 3 students)** to design a **functional, normalized database** and build a **simple web application** that interacts with it. This project is **mandatory** and must be **completed successfully to qualify for the exam**.
 
 You can choose between two options:
@@ -123,9 +123,9 @@ You can choose between two options:
 
 ---
 
-## ✅ **Requirements to Pass:**
+#Requirements to Pass:
 
-### 📁 1. **Database Design**
+### 1. **Database Design**
 - Written **problem analysis** and **ER diagram** (must be available during presentation).
 - **At least 5 tables** with meaningful relationships.
 - Proper **use of primary/foreign keys** and **3rd Normal Form (3NF)** normalization.
@@ -133,19 +133,19 @@ You can choose between two options:
 
 ---
 
-### 🌐 2. **Web Application**
+###  2. **Web Application**
 - Simple **web interface** (can use Flask or another framework if approved).
 - **CRUD functionality** for at least 2 key entities.
 - If you haven’t passed DAT310, you can use a simple Python-based app (must be approved within two weeks).
 
 ---
 
-### 🧠 3. **SQL Queries**
+###  3. **SQL Queries**
 Manually written (no migration tools), including:
-- ✅ 2 joins between multiple tables.
-- ✅ 1 aggregation query (e.g., COUNT, AVG).
-- ✅ 1 search/filter (e.g., by date or category).
-- ✅ 1 grouping query (e.g., using `GROUP BY`).
+- 2 joins between multiple tables.
+- 1 aggregation query (e.g., COUNT, AVG).
+- 1 search/filter (e.g., by date or category).
+- 1 grouping query (e.g., using `GROUP BY`).
 
 ---
 
