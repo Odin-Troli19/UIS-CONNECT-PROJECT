@@ -40,7 +40,7 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 | Frontend      | HTML, CSS (custom), Jinja2 templates      |
 | SQL Queries   | Manual SQL (no ORM or migration tools)    |
 
----
+
 
 ##  Features
 
@@ -62,8 +62,6 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 -  Dynamic user avatars with ui-avatars.com
 -  Protected routes (only logged-in users can post/comment)
 
----
-
 ##  How It Meets Project Requirements
 
 | Requirement                  | Status      |
@@ -77,8 +75,6 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 | CRUD operations              |  Posts and Comments (Create, Read, Delete/Edit coming soon) |
 | Web Interface                |  Flask-based app with HTML templates |
 | Sample data (≥ 10 per table) |  10+ entries per table in `sample_data.sql` |
-
----
 
 ##  Setup Instructions
 
