@@ -1,10 +1,8 @@
 # UIS-Connect – Social Media Platform for Students
-
 This is a simple social media platform database project built for the DAT220 course. It allows students at the University of Stavanger (UIS) to connect, share posts, and interact with each other.
 
 ## Group 36 (Originally two members)
 - Sture Troli  
-
 
 ## Features
 - User profiles with major and interests
@@ -20,7 +18,6 @@ uis_connect_project/ │ ├── app/ │ ├── app.py │ ├── confi
 
 
 # UIS-Connect: A Mini Social Network for Students
-
 This project was developed as part of the **DAT220 – Databases** course at the University of Stavanger. The goal is to design a functional and normalized relational database and build a simple web application that allows interaction with that data.
 
 UIS-Connect is a **campus-themed social media platform** that lets students:
@@ -39,8 +36,6 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 | Database      | SQLite                                    |
 | Frontend      | HTML, CSS (custom), Jinja2 templates      |
 | SQL Queries   | Manual SQL (no ORM or migration tools)    |
-
-
 
 ##  Features
 
