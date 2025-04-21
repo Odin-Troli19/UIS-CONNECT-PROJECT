@@ -9,6 +9,28 @@ INSERT INTO users (username, major, interests) VALUES
 ('Hannah', 'Information Systems', 'Enterprise IT'),
 ('Isaac', 'AI & Robotics', 'Computer Vision'),
 ('Julia', 'Digital Forensics', 'Security Analysis');
+('Katherine', 'Data Science', 'Statistics, R'),
+('Liam', 'Software Engineering', 'Agile, Scrum'),
+('Mia', 'Web Development', 'HTML, CSS'),
+('Noah', 'Cybersecurity', 'Ethical Hacking'),
+('Olivia', 'Machine Learning', 'TensorFlow, Keras'),
+('Parker', 'Cloud Computing', 'GCP, DevOps'),
+('Quinn', 'Digital Forensics', 'Incident Response'),
+('Ryan', 'AI & Robotics', 'Robotics Process Automation'),
+('Sophia', 'Information Systems', 'Data Management'),
+('Tyler', 'Business IT', 'Project Management');
+
+INSERT INTO courses (course_code, course_name, credits) VALUES
+('DAT220', 'Data Structures', 6),
+('DAT240', 'Web Development', 6),
+('DAT250', 'Software Engineering', 6),
+('DAT260', 'Machine Learning', 6),
+('DAT270', 'Cloud Computing', 6),
+('DAT280', 'Cybersecurity', 6),
+('DAT290', 'Digital Forensics', 6),
+('DAT300', 'Robotics', 6),
+('DAT310', 'AI & Robotics', 6),
+('DAT320', 'Information Systems', 6);
 
 INSERT INTO posts (user_id, content, timestamp) VALUES
 (1, 'Excited to start this semester!', '2025-03-01 10:00'),
@@ -21,6 +43,16 @@ INSERT INTO posts (user_id, content, timestamp) VALUES
 (8, 'Can someone help with Flask routing?', '2025-03-08 10:00'),
 (9, 'This week's lecture was amazing!', '2025-03-09 10:00'),
 (10, 'Let's meet for coffee and code!', '2025-03-10 10:00');
+(11, 'Hello world! First post.', '2025-04-01 10:00'),
+(12,  'Anyone up for a study group in mechanics?', '2025-04-01 11:00'),
+(13,  'Check out my ML model results!', '2025-04-02 09:30'),
+(14,  'Linux is life ', '2025-04-02 12:45'),
+(15, 'Biology notes for the exam ', '2025-04-03 08:15'),
+(16,  'Which book to read next?', '2025-04-03 13:20'),
+(17,  'My physics homework is wild ', '2025-04-04 14:05'),
+(18,  'Cool math riddle: ...', '2025-04-04 16:00'),
+(19, 'Network attack trends', '2025-04-05 09:45'),
+(20,  'Architecture sketch of campus', '2025-04-05 17:00');
 
 INSERT INTO comments (post_id, user_id, content, timestamp) VALUES
 (1, 1, 'Great post!', '2025-03-01 11:00'),
@@ -33,6 +65,16 @@ INSERT INTO comments (post_id, user_id, content, timestamp) VALUES
 (8, 8, 'Me too!', '2025-03-08 11:00'),
 (9, 9, 'Can help!', '2025-03-09 11:00'),
 (10, 10, 'Same here!', '2025-03-10 11:00');
+(11, 1, 'Welcome to the community!', '2025-04-01 11:30'),
+(12, 2, 'Study group sounds great!', '2025-04-01 12:00'),
+(13, 3, 'Impressive results!', '2025-04-02 10:00'),
+(14, 4, 'Linux is awesome!', '2025-04-02 13:00'),
+(15, 5, 'Thanks for sharing!', '2025-04-03 09:00'),
+(16, 6, 'I recommend "The Pragmatic Programmer"', '2025-04-03 14:00'),
+(17, 7, 'Physics can be tough!', '2025-04-04 15:00'),
+(18, 8, 'I love riddles!', '2025-04-04 17:00'),
+(19, 9, 'Interesting topic!', '2025-04-05 10:30'),
+(20, 10, 'Nice sketch!', '2025-04-05 18:00');
 
 INSERT INTO likes (post_id, user_id, timestamp) VALUES
 (1, 1, '2025-03-01 12:00'),
@@ -45,6 +87,16 @@ INSERT INTO likes (post_id, user_id, timestamp) VALUES
 (8, 8, '2025-03-08 12:00'),
 (9, 9, '2025-03-09 12:00'),
 (10, 10, '2025-03-10 12:00');
+(11, 1, '2025-04-01 12:30'),
+(12, 2, '2025-04-01 13:00'),
+(13, 3, '2025-04-02 11:00'),
+(14, 4, '2025-04-02 14:00'),
+(15, 5, '2025-04-03 10:00'),
+(16, 6, '2025-04-03 15:00'),
+(17, 7, '2025-04-04 16:00'),
+(18, 8, '2025-04-04 18:00'),
+(19, 9, '2025-04-05 11:30'),
+(20, 10, '2025-04-05 19:00');
 
 INSERT INTO friendships (user_id_1, user_id_2, status) VALUES
 (1, 2, 'accepted'),
@@ -57,4 +109,34 @@ INSERT INTO friendships (user_id_1, user_id_2, status) VALUES
 (8, 9, 'accepted'),
 (9, 10, 'accepted'),
 (10, 1, 'accepted');
+(1, 3, 'pending'),
+(2, 4, 'pending'),
+(3, 5, 'pending'),
+(4, 6, 'pending'),
+(5, 7, 'pending'),
+(6, 8, 'pending'),
+(7, 9, 'pending'),
+(8, 10, 'pending'),
+(9, 1, 'pending'),
+(10, 2, 'pending');
+(1, 4, 'blocked'),
+(2, 5, 'blocked'),
+(3, 6, 'blocked'),
+(4, 7, 'blocked'),
+(5, 8, 'blocked'),
+(6, 9, 'blocked'),
+(7, 10, 'blocked'),
+(8, 1, 'blocked'),
+(9, 2, 'blocked'),
+(10, 3, 'blocked');
+(1, 5, 'ignored'),
+(2, 6, 'ignored'),
+(3, 7, 'ignored'),
+(4, 8, 'ignored'),
+(5, 9, 'ignored'),
+(6, 10, 'ignored'),
+(7, 1, 'ignored'),
+(8, 2, 'ignored'),
+(9, 3, 'ignored'),
+(10, 4, 'ignored');
 
