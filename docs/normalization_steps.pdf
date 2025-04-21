@@ -1,0 +1,38 @@
+Normalization Steps - UIS-Connect
+
+We applied normalization up to the Third Normal Form (3NF) to ensure data consistency, eliminate
+redundancy, and improve query efficiency in the UIS-Connect project.
+
+
+1. First Normal Form (1NF):
+ - All tables have atomic (indivisible) values.
+ - There are no repeating groups or arrays in any column.
+ - Each record is unique and has a primary key.
+
+
+2. Second Normal Form (2NF):
+ - All non-key attributes are fully functionally dependent on the entire primary key.
+ - Since we are not using composite primary keys, each non-key column is directly related to the
+unique primary key of the table.
+ - For example, in the Posts table, 'content' and 'timestamp' depend entirely on 'id' and not partially
+on another field.
+
+
+3. Third Normal Form (3NF):
+ - No transitive dependencies exist (i.e., non-key attributes do not depend on other non-key
+attributes).
+ - In the Users table, we do not store derived or duplicate information.
+ - Each field depends only on the primary key.
+
+
+Table Overview:
+Users (id, username, major, interests)
+Posts (id, user_id, content, timestamp)
+Comments (id, post_id, user_id, content, timestamp)
+Likes (id, post_id, user_id)
+Friendships (id, user_id_1, user_id_2)
+
+
+Conclusion:
+All five tables follow 1NF, 2NF, and 3NF rules. We ensured each table is focused on a single topic
+with proper foreign keys to handle relationships between data.
