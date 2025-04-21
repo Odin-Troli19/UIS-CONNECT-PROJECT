@@ -1,0 +1,60 @@
+
+###  Problem Analysis – UIS-Connect
+
+**Project Name**: UIS-Connect  
+**Group Members**: Sture Troli 
+**Option Chosen**: Option A – Social Media Platform  
+
+
+
+###  Problem Overview
+
+Students at the University of Stavanger (UIS) often struggle to connect with their peers outside of formal classes.
+Current communication tools like Facebook and WhatsApp aren’t tailored for campus-specific needs like study groups, course discussions, or finding classmates with similar interests.  
+
+To address this issue, I am designing a lightweight social media platform — **UIS-Connect** — which allows students to create profiles, share posts, interact through comments and likes, and build study networks through friend connections.  
+
+
+
+###  Objective
+
+To build a **functional, normalized database** and a simple **Flask web application** that allows users to:
+- Create accounts
+- Post content
+- Like and comment on posts
+- Add other users as friends
+- View and interact with each other's profiles
+
+
+
+###  Key Entities
+
+We identified the following core entities:
+
+| Entity      | Description |
+|-------------|-------------|
+| **Users**       | Stores student information like name, username, major, interests |
+| **Posts**       | Content shared by users (text-based posts) |
+| **Comments**    | Reactions or discussions under posts |
+| **Likes**       | Tracks which users liked which posts |
+| **Friendships** | Records mutual user connections (friends) |
+
+
+
+### 🔗 Relationships Summary
+
+- One **User** can have many **Posts**
+- One **User** can comment on many **Posts**
+- One **User** can like many **Posts**
+- One **Post** can have many **Comments**
+- **Friendships** is a self-referencing relationship on the **Users** table
+
+
+
+###  Goals for the Database
+
+- Store all relationships in a normalized structure (3NF)
+- Allow basic CRUD operations for users, posts, and interactions
+- Run SQL queries including joins, grouping, filtering, and aggregations
+- Keep the schema simple for clarity during our school presentation
+
