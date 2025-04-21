@@ -31,14 +31,7 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 - Add friends
 - Explore a minimal social experience within a student community
 
----
-
-##  Group Members
-**Group 36**
-- Sture Troli
----
-
-## 🛠 Tech Stack
+##  Tech Stack
 
 | Layer         | Technology                                |
 |---------------|-------------------------------------------|
