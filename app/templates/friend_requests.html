@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Friend Requests</h2>
+
+{% if requests %}
+    <ul>
+        {% for req in requests %}
+        <li>
+            {{ req.requester }}
+            <form method="post" style="display:inline;">
+                <input type="hidden" name="friendship_id" value="{{ req.id }}">
+                <button name="action" value="accepted">Accept</button>
+                <button name="action" value="rejected">Reject</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending friend requests.</p>
+{% endif %}
+
+{% endblock %}

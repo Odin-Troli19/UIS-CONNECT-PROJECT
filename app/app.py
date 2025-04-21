@@ -125,6 +125,39 @@ def friendships():
     conn.close()
     return render_template('friendships.html', friendships=friendships)
 
+@app.route('/send_friend_request/<int:to_user_id>')
+def send_friend_request_route(to_user_id):
+    from_user_id = session.get('user_id')
+    if not from_user_id:
+        flash("Please login to send friend requests.", "error")
+        return redirect(url_for('login'))
+
+    # Avoid sending request to self
+    if from_user_id == to_user_id:
+        flash("You can't send a request to yourself.", "error")
+        return redirect(url_for('profile'))
+
+    send_friend_request(from_user_id, to_user_id)
+    flash("Friend request sent!", "success")
+    return redirect(url_for('index'))
+
+@app.route('/friend_requests', methods=['GET', 'POST'])
+def friend_requests():
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("Login required to view friend requests.", "error")
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        action = request.form['action']
+        friendship_id = request.form['friendship_id']
+        if action in ['accepted', 'rejected']:
+            update_friend_request(friendship_id, action)
+            flash(f"Request {action}!", "info")
+
+    requests = get_friend_requests_for_user(user_id)
+    return render_template('friend_requests.html', requests=requests)
+
 
 if __name__ == '__main__':
     app.run(debug=True)

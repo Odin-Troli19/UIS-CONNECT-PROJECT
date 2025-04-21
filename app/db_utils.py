@@ -70,3 +70,32 @@ def authenticate_user(username):
     user = conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
     conn.close()
     return user
+
+def send_friend_request(user_id_1, user_id_2):
+    conn = get_db_connection()
+    conn.execute("""
+        INSERT INTO friendships (user_id_1, user_id_2, status)
+        VALUES (?, ?, 'pending')
+    """, (user_id_1, user_id_2))
+    conn.commit()
+    conn.close()
+
+def get_friend_requests_for_user(user_id):
+    conn = get_db_connection()
+    requests = conn.execute("""
+        SELECT f.id, u1.username AS requester
+        FROM friendships f
+        JOIN users u1 ON f.user_id_1 = u1.id
+        WHERE f.user_id_2 = ? AND f.status = 'pending'
+    """, (user_id,)).fetchall()
+    conn.close()
+    return requests
+
+def update_friend_request(friendship_id, new_status):
+    conn = get_db_connection()
+    conn.execute("""
+        UPDATE friendships SET status = ?
+        WHERE id = ?
+    """, (new_status, friendship_id))
+    conn.commit()
+    conn.close()

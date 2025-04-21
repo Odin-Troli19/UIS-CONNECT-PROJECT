@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% if session.user_id != user.id %}
+    <a href="{{ url_for('send_friend_request_route', to_user_id=user.id) }}">
+        Send Friend Request
+    </a>
+{% endif %}
+
+
 {% block content %}
     <h2>{{ user.username }}'s Profile</h2>
     <p><strong>Major:</strong> {{ user.major }}</p>
