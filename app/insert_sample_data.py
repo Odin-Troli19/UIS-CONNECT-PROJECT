@@ -24,10 +24,10 @@ def insert_sample_data():
         (1, 1, 'Hello world! First post.', '2025-04-01 10:00'),
         (2, 2, 'Anyone up for a study group in mechanics?', '2025-04-01 11:00'),
         (3, 3, 'Check out my ML model results!', '2025-04-02 09:30'),
-        (4, 4, 'Linux is life 💻', '2025-04-02 12:45'),
-        (5, 5, 'Biology notes for the exam 📚', '2025-04-03 08:15'),
+        (4, 4, 'Linux is life ', '2025-04-02 12:45'),
+        (5, 5, 'Biology notes for the exam ', '2025-04-03 08:15'),
         (6, 6, 'Which book to read next?', '2025-04-03 13:20'),
-        (7, 7, 'My physics homework is wild 😅', '2025-04-04 14:05'),
+        (7, 7, 'My physics homework is wild ', '2025-04-04 14:05'),
         (8, 8, 'Cool math riddle: ...', '2025-04-04 16:00'),
         (9, 9, 'Network attack trends', '2025-04-05 09:45'),
         (10, 10, 'Architecture sketch of campus', '2025-04-05 17:00')
@@ -42,7 +42,7 @@ def insert_sample_data():
         (4, 4, 5, 'Totally agree!', '2025-04-02 13:00'),
         (5, 5, 6, 'Thanks for sharing.', '2025-04-03 08:30'),
         (6, 6, 8, 'Try "Rich Dad Poor Dad".', '2025-04-03 14:00'),
-        (7, 7, 9, 'Physics gang 😎', '2025-04-04 14:30'),
+        (7, 7, 9, 'Physics gang ', '2025-04-04 14:30'),
         (8, 8, 10, 'Love that puzzle!', '2025-04-04 16:15'),
         (9, 9, 4, 'Good stuff.', '2025-04-05 10:00'),
         (10, 10, 7, 'That’s beautiful!', '2025-04-05 17:30')

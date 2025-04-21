@@ -112,5 +112,19 @@ def like(post_id):
     flash("Post liked!", "info")
     return redirect(url_for('index'))
 
+@app.route('/friendships')
+def friendships():
+    conn = get_db_connection()
+    friendships = conn.execute("""
+        SELECT u1.username AS user1, u2.username AS user2, f.status
+        FROM friendships f
+        JOIN users u1 ON f.user_id_1 = u1.id
+        JOIN users u2 ON f.user_id_2 = u2.id
+        ORDER BY u1.username, u2.username
+    """).fetchall()
+    conn.close()
+    return render_template('friendships.html', friendships=friendships)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
