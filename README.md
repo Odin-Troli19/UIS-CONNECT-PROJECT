@@ -37,16 +37,16 @@ UIS-Connect is a **campus-themed social media platform** that lets students:
 
 ## 🛠 Tech Stack
 
-| Layer         | Technology        |
-|--------------|-------------------|
-| Backend       | Python, Flask     |
-| Database      | SQLite            |
-| Frontend      | HTML, CSS (custom), Jinja2 templates |
-| SQL Queries   | Manual SQL (no ORM or migration tools) |
+| Layer         | Technology                                |
+|---------------|-------------------------------------------|
+| Backend       | Python, Flask                             |
+| Database      | SQLite                                    |
+| Frontend      | HTML, CSS (custom), Jinja2 templates      |
+| SQL Queries   | Manual SQL (no ORM or migration tools)    |
 
 ---
 
-## 🔍 Features
+##  Features
 
 ### Core Functionality
 -  User registration and login/logout (session-based)
