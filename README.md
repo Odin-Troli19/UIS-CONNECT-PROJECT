@@ -125,7 +125,7 @@ You can choose between two options:
 
 #Requirements to Pass:
 
-### 1. **Database Design**
+### 1. Database Design
 - Written **problem analysis** and **ER diagram** (must be available during presentation).
 - **At least 5 tables** with meaningful relationships.
 - Proper **use of primary/foreign keys** and **3rd Normal Form (3NF)** normalization.
@@ -133,14 +133,14 @@ You can choose between two options:
 
 ---
 
-###  2. **Web Application**
+###  2. Web Application
 - Simple **web interface** (can use Flask or another framework if approved).
 - **CRUD functionality** for at least 2 key entities.
 - If you haven’t passed DAT310, you can use a simple Python-based app (must be approved within two weeks).
 
 ---
 
-###  3. **SQL Queries**
+###  3. SQL Queries
 Manually written (no migration tools), including:
 - 2 joins between multiple tables.
 - 1 aggregation query (e.g., COUNT, AVG).
@@ -149,7 +149,7 @@ Manually written (no migration tools), including:
 
 ---
 
-###  4. **Presentation (5–7 min + 2–3 min Q&A)**
+###  4. Presentation (5–7 min + 2–3 min Q&A)
 - Show **schema, ER diagram, normalization**.
 - Demonstrate **SQL queries**.
 - Present **web application and database** in action.
