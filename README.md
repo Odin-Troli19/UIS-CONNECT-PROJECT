@@ -104,16 +104,12 @@ Visit: http://127.0.0.1:5000
 
 Here’s a summary of the **DAT220 Group Project Description** and the **requirements to pass**:
 
----
-
 Project Summary:
 You will work in a **group of 2 (or 3 students)** to design a **functional, normalized database** and build a **simple web application** that interacts with it. This project is **mandatory** and must be **completed successfully to qualify for the exam**.
 
 You can choose between two options:
 - **Option A:** Design a social media platform database (users, posts, likes, comments, etc.).
 - **Option B:** Your own custom application (must describe it in the proposal).
-
----
 
 #Requirements to Pass:
 
@@ -123,14 +119,10 @@ You can choose between two options:
 - Proper **use of primary/foreign keys** and **3rd Normal Form (3NF)** normalization.
 - **At least 10 records** per table.
 
----
-
 ###  2. Web Application
 - Simple **web interface** (can use Flask or another framework if approved).
 - **CRUD functionality** for at least 2 key entities.
 - If you haven’t passed DAT310, you can use a simple Python-based app (must be approved within two weeks).
-
----
 
 ###  3. SQL Queries
 Manually written (no migration tools), including:
@@ -138,8 +130,6 @@ Manually written (no migration tools), including:
 - 1 aggregation query (e.g., COUNT, AVG).
 - 1 search/filter (e.g., by date or category).
 - 1 grouping query (e.g., using `GROUP BY`).
-
----
 
 ###  4. Presentation (5–7 min + 2–3 min Q&A)
 - Show **schema, ER diagram, normalization**.
