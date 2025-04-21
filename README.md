@@ -13,8 +13,11 @@ This is a simple social media platform database project built for the DAT220 cou
 - Web app built with Flask and SQLite
 - Manually written SQL queries
 
+
 ## Project Structure
 uis_connect_project/ │ ├── app/ │ ├── app.py │ ├── config.py │ ├── db_utils.py │ ├── static/ │ │ └── style.css │ └── templates/ │ ├── base.html │ ├── index.html │ ├── profile.html │ └── post.html │ ├── database/ │ ├── schema.sql │ ├── sample_data.sql │ └── queries.sql │ ├── docs/ │ ├── ER_diagram.png │ ├── normalization.pdf │ └── proposal.pdf │ └── README.md
+
+
 
 # UIS-Connect: A Mini Social Network for Students
 
