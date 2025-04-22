@@ -12,19 +12,15 @@
             <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('profile') }}">My Profile</a>
             <a href="{{ url_for('friendships') }}">Friendships</a>
-
-
         </nav>
     </header>
+
     {% if session.get('username') %}
         <p>Logged in as {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a></p>
+        <p><a href="{{ url_for('friend_requests') }}">Friend Requests</a></p>
     {% else %}
         <p><a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a></p>
     {% endif %}
-        
-    {% if session.get('user_id') %}
-        <p><a href="{{ url_for('friend_requests') }}">Friend Requests</a></body></p>
-{   % endif %}
 
     <main>
         {% block content %}{% endblock %}
