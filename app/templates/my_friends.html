@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>My Friends</h2>
+
+{% if friends %}
+    <ul>
+        {% for friend in friends %}
+            <li><a href="{{ url_for('view_user', user_id=friend.id) }}">{{ friend.username }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You don't have any friends yet.</p>
+{% endif %}
+{% endblock %}

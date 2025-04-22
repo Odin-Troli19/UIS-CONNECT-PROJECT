@@ -8,11 +8,10 @@ from db_utils import (
     add_post,
     like_post,
     authenticate_user,
-    get_friend_requests_for_user
+    get_friend_requests_for_user,
+    update_friend_request,
+    send_friend_request
 )
-
-
-
 
 from config import DATABASE
 
@@ -129,18 +128,7 @@ def like(post_id):
     flash("Post liked!", "info")
     return redirect(url_for('index'))
 
-@app.route('/friendships')
-def friendships():
-    conn = get_db_connection()
-    friendships = conn.execute("""
-        SELECT u1.username AS user1, u2.username AS user2, f.status
-        FROM friendships f
-        JOIN users u1 ON f.user_id_1 = u1.id
-        JOIN users u2 ON f.user_id_2 = u2.id
-        ORDER BY u1.username, u2.username
-    """).fetchall()
-    conn.close()
-    return render_template('friendships.html', friendships=friendships)
+
 
 @app.route('/send_friend_request/<int:to_user_id>')
 def send_friend_request_route(to_user_id):
@@ -211,6 +199,28 @@ def view_user(user_id):
         return redirect(url_for('users'))
 
     return render_template('user_profile.html', user=user, posts=posts)
+
+@app.route('/my_friends')
+def my_friends():
+    user_id = session.get('user_id')
+    if not user_id:
+        flash("You must be logged in to see your friends.", "error")
+        return redirect(url_for('login'))
+
+    conn = get_db_connection()
+    friends = conn.execute("""
+        SELECT u.username, u.id
+        FROM friendships f
+        JOIN users u ON (
+            (f.user_id_1 = ? AND u.id = f.user_id_2) OR 
+            (f.user_id_2 = ? AND u.id = f.user_id_1)
+        )
+        WHERE f.status = 'accepted'
+    """, (user_id, user_id)).fetchall()
+    conn.close()
+
+    return render_template('my_friends.html', friends=friends)
+
 
 
 if __name__ == '__main__':
