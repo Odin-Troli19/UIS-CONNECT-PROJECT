@@ -177,18 +177,21 @@ def friend_requests():
 
 @app.route('/users')
 def users():
-    sort_by = request.args.get('sort', 'username')  # Default to sorting by name
-    if sort_by not in ['username', 'major']:
+    sort_by = request.args.get('sort', 'username')
+    allowed_sort_fields = ['username', 'major', 'interests', 'student_number', 'study_level', 'campus']
+
+    if sort_by not in allowed_sort_fields:
         sort_by = 'username'
 
     conn = get_db_connection()
     users = conn.execute(f"""
-        SELECT id, username, major, interests
+        SELECT id, username, major, interests, student_number, study_level, campus
         FROM users
         ORDER BY {sort_by} ASC
     """).fetchall()
     conn.close()
     return render_template('users.html', users=users, sort_by=sort_by)
+
 
 @app.route('/users/<int:user_id>')
 def view_user(user_id):

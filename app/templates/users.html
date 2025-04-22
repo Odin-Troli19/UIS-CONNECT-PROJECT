@@ -8,8 +8,13 @@
     <select name="sort" onchange="this.form.submit()">
         <option value="username" {% if sort_by == 'username' %}selected{% endif %}>Name</option>
         <option value="major" {% if sort_by == 'major' %}selected{% endif %}>Major</option>
+        <option value="interests" {% if sort_by == 'interests' %}selected{% endif %}>Interests</option>
+        <option value="student_number" {% if sort_by == 'student_number' %}selected{% endif %}>Student Number</option>
+        <option value="study_level" {% if sort_by == 'study_level' %}selected{% endif %}>Study Level</option>
+        <option value="campus" {% if sort_by == 'campus' %}selected{% endif %}>Campus</option>
     </select>
 </form>
+
 
 <ul>
     {% for user in users %}
