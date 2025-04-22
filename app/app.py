@@ -44,18 +44,32 @@ def register():
         username = request.form['username']
         major = request.form['major']
         interests = request.form['interests']
-        user = authenticate_user(username)
-        if user:
+        study_level = request.form['study_level']
+        campus = request.form['campus']
+        student_number = request.form['student_number']
+
+        existing_user = authenticate_user(username)
+        if existing_user:
             flash("Username already exists.", "error")
             return redirect(url_for('register'))
+
         conn = get_db_connection()
-        conn.execute("INSERT INTO users (username, major, interests) VALUES (?, ?, ?)",
-                     (username, major, interests))
+        conn.execute("""
+            INSERT INTO users (username, major, interests, study_level, campus, student_number)
+            VALUES (?, ?, ?, ?, ?, ?)
+        """, (username, major, interests, study_level, campus, student_number))
         conn.commit()
+
+        user = conn.execute("SELECT * FROM users WHERE username = ?", (username,)).fetchone()
         conn.close()
-        flash("Registration successful! You can now log in.", "success")
-        return redirect(url_for('login'))
+
+        session['user_id'] = user['id']
+        session['username'] = user['username']
+        flash("Registration successful! You are now logged in.", "success")
+        return redirect(url_for('index'))
+
     return render_template('register.html')
+
 
 
 @app.route('/logout')
@@ -160,6 +174,40 @@ def friend_requests():
 
     requests = get_friend_requests_for_user(user_id)
     return render_template('friend_requests.html', requests=requests)
+
+@app.route('/users')
+def users():
+    sort_by = request.args.get('sort', 'username')  # Default to sorting by name
+    if sort_by not in ['username', 'major']:
+        sort_by = 'username'
+
+    conn = get_db_connection()
+    users = conn.execute(f"""
+        SELECT id, username, major, interests
+        FROM users
+        ORDER BY {sort_by} ASC
+    """).fetchall()
+    conn.close()
+    return render_template('users.html', users=users, sort_by=sort_by)
+
+@app.route('/users/<int:user_id>')
+def view_user(user_id):
+    conn = get_db_connection()
+    user = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
+    posts = conn.execute("""
+        SELECT p.*, 
+               (SELECT COUNT(*) FROM likes WHERE post_id = p.id) AS like_count
+        FROM posts p
+        WHERE p.user_id = ?
+        ORDER BY p.timestamp DESC
+    """, (user_id,)).fetchall()
+    conn.close()
+
+    if not user:
+        flash("User not found", "error")
+        return redirect(url_for('users'))
+
+    return render_template('user_profile.html', user=user, posts=posts)
 
 
 if __name__ == '__main__':

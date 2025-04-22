@@ -12,6 +12,23 @@
     <label>Interests:</label><br>
     <input type="text" name="interests"><br><br>
 
+    <label>Student Number:</label><br>
+    <input type="text" name="student_number" required><br><br>
+
+    <label>Study Level:</label><br>
+    <select name="study_level" required>
+        <option value="Bachelor">Bachelor</option>
+        <option value="Master">Master</option>
+        <option value="PhD">PhD</option>
+    </select><br><br>
+
+    <label>Campus:</label><br>
+    <select name="campus" required>
+        <option value="Ullandhaug">Ullandhaug</option>
+        <option value="Bjergsted">Bjergsted</option>
+        <option value="Arkeologisk museum">Arkeologisk museum</option>
+    </select><br><br>
+
     <button type="submit">Register</button>
 </form>
 {% endblock %}
