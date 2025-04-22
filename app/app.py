@@ -7,8 +7,11 @@ from db_utils import (
     add_comment,
     add_post,
     like_post,
-    authenticate_user
+    authenticate_user,
+    get_friend_requests_for_user
 )
+
+
 
 
 from config import DATABASE

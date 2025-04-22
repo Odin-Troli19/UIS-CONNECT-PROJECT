@@ -91,6 +91,7 @@ def get_friend_requests_for_user(user_id):
     conn.close()
     return requests
 
+
 def update_friend_request(friendship_id, new_status):
     conn = get_db_connection()
     conn.execute("""
