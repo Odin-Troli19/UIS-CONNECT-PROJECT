@@ -2,33 +2,150 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UIS-Connect</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}UIS-Connect{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <header>
-        <h1>UIS-Connect</h1>
-        <nav>
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('profile') }}">My Profile</a>
-            <a href="{{ url_for('my_friends') }}">My Friends</a>
-            <a href="{{ url_for('users') }}">All Users</a>
-        </nav>
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="{{ url_for('index') }}">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>UIS-Connect</span>
+                    </a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="search-bar">
+                    <form action="{{ url_for('search') }}" method="get">
+                        <input type="text" name="q" placeholder="Search users, posts, #hashtags..." 
+                               value="{{ request.args.get('q', '') }}">
+                        <button type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <nav class="main-nav">
+                    <a href="{{ url_for('index') }}" class="nav-item {% if request.endpoint == 'index' %}active{% endif %}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    {% if current_user %}
+                        <a href="{{ url_for('friends') }}" class="nav-item {% if request.endpoint == 'friends' %}active{% endif %}">
+                            <i class="fas fa-user-friends"></i>
+                            <span>Friends</span>
+                        </a>
+                        
+                        <a href="{{ url_for('messages') }}" class="nav-item {% if request.endpoint in ['messages', 'conversation'] %}active{% endif %}">
+                            <i class="fas fa-envelope"></i>
+                            <span>Messages</span>
+                            {% if unread_messages > 0 %}
+                                <span class="badge">{{ unread_messages }}</span>
+                            {% endif %}
+                        </a>
+                        
+                        <a href="{{ url_for('notifications') }}" class="nav-item {% if request.endpoint == 'notifications' %}active{% endif %}">
+                            <i class="fas fa-bell"></i>
+                            <span>Notifications</span>
+                            {% if unread_notifications > 0 %}
+                                <span class="badge">{{ unread_notifications }}</span>
+                            {% endif %}
+                        </a>
+                        
+                        <div class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <img src="{{ url_for('static', filename='uploads/' + current_user.profile_picture) if current_user.profile_picture != 'default.png' else url_for('static', filename='images/default-avatar.png') }}" 
+                                     alt="Profile" class="profile-avatar-small">
+                                <span>{{ current_user.username }}</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> My Profile</a>
+                                <a href="{{ url_for('saved_posts') }}"><i class="fas fa-bookmark"></i> Saved Posts</a>
+                                <a href="{{ url_for('edit_profile') }}"><i class="fas fa-cog"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="nav-item">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Login</span>
+                        </a>
+                        <a href="{{ url_for('register') }}" class="nav-item btn-primary">
+                            <i class="fas fa-user-plus"></i>
+                            <span>Register</span>
+                        </a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
     </header>
 
-    {% if session.get('username') %}
-        <p>Logged in as {{ session.username }} | <a href="{{ url_for('logout') }}">Logout</a></p>
-        <p><a href="{{ url_for('friend_requests') }}">Friend Requests</a></p>
-    {% else %}
-        <p><a href="{{ url_for('login') }}">Login</a> | <a href="{{ url_for('register') }}">Register</a></p>
-    {% endif %}
-
-    <main>
-        {% block content %}{% endblock %}
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                <i class="fas fa-{% if category == 'success' %}check-circle{% elif category == 'error' %}exclamation-circle{% elif category == 'warning' %}exclamation-triangle{% else %}info-circle{% endif %}"></i>
+                                {{ message }}
+                                <button class="close-alert">&times;</button>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 UIS-Connect</p>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UIS-Connect</h4>
+                    <p>Connecting university students worldwide</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('users') }}">Find Users</a></li>
+                        {% if current_user %}
+                            <li><a href="{{ url_for('new_post') }}">Create Post</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 UIS-Connect. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
